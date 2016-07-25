@@ -67,9 +67,10 @@ function makeBoard(){
     $(this).click(function(){
       //assign the data value to var
       var poke_name = $(this).attr('data-val')
-      //run flip function
+      //pushes the id of the div into cardIds array
       cardIds.push(this.id)
       console.log(cardIds)
+      //run flip function
       flipCard($(this),poke_name)
     })
   })
@@ -80,7 +81,7 @@ function flipCard(card,val){
   //if card is empty and length of cardVal is less than 2
   if(cardVal.length < 2){
     //change bg to grey & assign the value to the card text
-    card.innerHTML = val;
+    $(card).html(val);
     console.log(cardIds)
     card.css('background-image', 'none');
     if(cardVal.length == 0){
@@ -107,14 +108,16 @@ function flipCard(card,val){
       } else {
         function faceDown(){
           // assign the flipped cards to variables
-          var flip1 = document.getElementById(cardIds[0])
+          var flip1 = document.getElementById(cardIds[0]);
+          var flip1 = $('#' + cardIds[0]);
           console.log(flip1)
           var flip2 = document.getElementById(cardIds[1]);
+          var flip2 = $('#' + cardIds[1]);
           // Flip the 2 tiles back over
           flip1.css('background-image' , "url(http://cdn.bulbagarden.net/upload/thumb/2/2a/TCG_Card_Back_Japanese.jpg/150px-TCG_Card_Back_Japanese.jpg)");
-          flip1.innerHTML = "";
-          flip2.css ('background-image' , 'url(http://cdn.bulbagarden.net/upload/thumb/2/2a/TCG_Card_Back_Japanese.jpg/150px-TCG_Card_Back_Japanese.jpg)');
-          flip2.innerHTML = "";
+          flip1.html("");
+          flip2.css('background-image' , 'url(http://cdn.bulbagarden.net/upload/thumb/2/2a/TCG_Card_Back_Japanese.jpg/150px-TCG_Card_Back_Japanese.jpg)');
+          flip2.html("");
           // Clear both arrays
           cardVal = [];
           cardIds = [];
