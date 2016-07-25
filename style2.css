@@ -1,0 +1,87 @@
+/*Downloaded my font from http://www.fontspace.com/pixel-sagas/hyperspace*/
+
+@font-face {
+font-family: Hyperspace;
+src: url("hyperspace_italic.otf") format("opentype");
+}
+
+body{
+  font-family: Hyperspace;
+  color: #3FD69A;
+}
+#first:before{
+  content : "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url('https://coinarcade.files.wordpress.com/2013/08/018-pidgeot.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  opacity: .8;
+  z-index: -1;
+}
+
+h1{
+  font-size: 80px;
+  font-weight: bolder;
+}
+
+
+.titleBox{
+  width: 500px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  border-radius: 20px;
+}
+
+button{
+  display: block;
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 150px;
+  text-align: center;
+  border: dotted black 10px;
+  border-radius: 50px;
+  font-size: 30px;
+  padding: 14px 40px;
+  font-family: Hyperspace;
+  font-weight: 400;
+  color: #3FD69A;
+  background-color: transparent;
+  outline: none;
+  font-weight: bold;
+}
+
+#second{
+  background-image: url('https://coinarcade.files.wordpress.com/2013/08/006-charizard.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+#board{
+  height: 540px;
+  width: 800px;
+  border: solid black 5px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+#board > div{
+  background-image: url('http://cdn.bulbagarden.net/upload/thumb/2/2a/TCG_Card_Back_Japanese.jpg/150px-TCG_Card_Back_Japanese.jpg');
+  border: 2px solid;
+  width: 115px;
+  height: 170px;
+  float: left;
+  margin: 20px;
+  padding: 20px;
+  font-size: 12px;
+  cursor: pointer;
+  text-align: center;
+}
