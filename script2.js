@@ -12,7 +12,7 @@ console.log("It's working bro");
   // ['Heracross', 'images/heracross.png']
   // ]
 
-var cardArray = ['Meowth','Meowth','Pikachu','Pikachu','Scizor','Scizor','Heracross','Heracross'];
+var cardArray = ['Meowth','Meowth','Pikachu','Pikachu','Scizor','Scizor','Heracross','Heracross', 'Mew', 'Mew','Mewtwo', 'Mewtwo','Charizard','Charizard','Blastoise', 'Blastoise','Venasaur','Venasaur'];
 //create array for values and Ids, and a var for the counter
 var cardVal = [];
 var cardIds = [];
@@ -28,7 +28,7 @@ Array.prototype.cardShuffle = function(){
     this[j] = this[i];
     this[i] = temp;
   }
-}
+};
 
 //function for setting the board up on the screen
 var start = function(){
@@ -37,19 +37,19 @@ var start = function(){
     $('.titleBox').remove();
     screenSwitch();
     makeBoard();
-  })
-}
+  });
+};
 start();
 
 //function for switching from main screen to game screen
 var screenSwitch = function(){
   $('body').removeAttr('id');
   $('body').attr('id','second');
-}
+};
 
 //function for creating the board
 function makeBoard(){
-  var board = $("<div id='board'>")
+  var board = $("<div id='board'>");
   $('body').append(board);
   var output ='';
   //runs the method that I added to the prototype
@@ -58,41 +58,40 @@ function makeBoard(){
   //For loop to create, the cards and assign values
   for (var i = 0; i < cardArray.length; i++){
     output = $('<div id="card'+i+'" class="a_card"  data-val='+cardArray[i]+'>"');
-
     //added to body
-    board.append(output);
+  board.append(output);
   }
   //runs seperate function for div's class
   $('.a_card').each(function(){
     //when the div being ran through is clicked
     $(this).click(function(){
       //assign the data value to var
-      var poke_name = $(this).attr('data-val')
+      var poke_name = $(this).attr('data-val');
       //pushes the id of the div into cardIds array
-      cardIds.push(this.id)
-      console.log(cardIds)
-      //run flip function
-      flipCard($(this),poke_name)
-    })
-  })
+      cardIds.push(this.id);
+      console.log(cardIds);
+      //run flip function;
+      flipCard($(this),poke_name);
+    });
+  });
 }
 
 function flipCard(card,val){
-  console.log(val)
+  console.log(val);
   //if card is empty and length of cardVal is less than 2
   if(cardVal.length < 2){
     //change bg to grey & assign the value to the card text
     $(card).html(val);
-    console.log(cardIds)
+    console.log(cardIds);
     card.css('background-image', 'none');
-    if(cardVal.length == 0){
+    if(cardVal.length === 0){
       //add val to cardVal array && card.id to cardIds array
       cardVal.push(val);
-      console.log(cardVal)
+      console.log(cardVal);
     }else if(cardVal.length == 1){
       //same as above
       cardVal.push(val);
-      console.log(cardVal)
+      console.log(cardVal);
       cardIds.push(card.id);
       //if they equal each other...
       if (cardVal[0] == cardVal[1]){
@@ -102,12 +101,12 @@ function flipCard(card,val){
         cardIds = [];
         //if all values are clicked, reset
         if(counter == cardArray.length){
-          alert("Resetting game");
+          alert("You win! Resetting game");
           $('div').remove();
           makeBoard();
         }
       } else {
-        function faceDown(){
+       function faceDown(){
           // assign the flipped cards to variables
           var flip1 = $('#' + cardIds[0]);
           // console.log(flip1)
@@ -126,6 +125,5 @@ function flipCard(card,val){
     }
   }
 }
-
 
 });

@@ -68,22 +68,24 @@ button{
 }
 
 #board{
-  height: 540px;
-  width: 800px;
+  height: 570px;
+  width: 1000px;
   border: solid black 5px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 12px;
 }
 
 #board > div{
   background-image: url('http://cdn.bulbagarden.net/upload/thumb/2/2a/TCG_Card_Back_Japanese.jpg/150px-TCG_Card_Back_Japanese.jpg');
+  background-size: cover;
   border: 2px solid;
-  width: 115px;
-  height: 170px;
+  width: 100px;
+  height: 130px;
   float: left;
+  padding: 10px;
   margin: 20px;
-  padding: 20px;
-  font-size: 24px;
+  font-size: 20px;
   cursor: url(http://cur.cursors-4u.net/games/images13/gam1276.png), auto;
   text-align: center;
+  color: black;
 }
