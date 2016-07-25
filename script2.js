@@ -58,6 +58,7 @@ function makeBoard(){
   //For loop to create, the cards and assign values
   for (var i = 0; i < cardArray.length; i++){
     output = $('<div id="card'+i+'" class="a_card"  data-val='+cardArray[i]+'>"');
+
     //added to body
     board.append(output);
   }
@@ -102,16 +103,14 @@ function flipCard(card,val){
         //if all values are clicked, reset
         if(counter == cardArray.length){
           alert("Resetting game");
-          $('board').html = "";
+          $('div').remove();
           makeBoard();
         }
       } else {
         function faceDown(){
           // assign the flipped cards to variables
-          var flip1 = document.getElementById(cardIds[0]);
           var flip1 = $('#' + cardIds[0]);
-          console.log(flip1)
-          var flip2 = document.getElementById(cardIds[1]);
+          // console.log(flip1)
           var flip2 = $('#' + cardIds[1]);
           // Flip the 2 tiles back over
           flip1.css('background-image' , "url(http://cdn.bulbagarden.net/upload/thumb/2/2a/TCG_Card_Back_Japanese.jpg/150px-TCG_Card_Back_Japanese.jpg)");
@@ -122,7 +121,7 @@ function flipCard(card,val){
           cardVal = [];
           cardIds = [];
         }
-        setTimeout(faceDown, 500);
+        setTimeout(faceDown, 1000);
       }
     }
   }
