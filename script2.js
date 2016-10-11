@@ -61,7 +61,7 @@ function makeBoard(){
     //added to body
   board.append(output);
   }
-  //runs seperate function for div's class
+  //runs function for the div's created
   $('.a_card').each(function(){
     //when the div being ran through is clicked
     $(this).click(function(){
@@ -120,7 +120,7 @@ function flipCard(card,val){
           cardVal = [];
           cardIds = [];
         }
-        setTimeout(faceDown, 1000);
+        setTimeout(faceDown, 500);
       }
     }
   }

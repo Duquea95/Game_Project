@@ -16,7 +16,7 @@ body{
   position: absolute;
   top: 0;
   left: 0;
-  background-image: url('https://coinarcade.files.wordpress.com/2013/08/018-pidgeot.jpg');
+
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
@@ -59,7 +59,6 @@ button{
 }
 
 #second{
-  background-image: url('https://coinarcade.files.wordpress.com/2013/08/006-charizard.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
