@@ -4,6 +4,10 @@
 font-family: Hyperspace;
 src: url("hyperspace_italic.otf") format("opentype");
 }
+@font-face {
+font-family: Digitaldream;
+src: url("DIGITALDREAMSKEWNARROW.ttf");
+}
 
 body{
   font-family: Hyperspace;
@@ -92,7 +96,8 @@ button{
 }
 
 div#time{
-  font-size: 24px;
+  font-family: Digitaldream;
+  font-size: 42px;
   margin-right: 85px;
   text-align: center;
 }
