@@ -1,18 +1,28 @@
 $(function(){
 console.log("It's working bro");
 
-  // var cardArray = [
-  // ['Pikachu', 'images/pika.png'],
-  // ['Pikachu', 'images/pika.png'],
-  // ['Meowth', 'images/meowth.png'],
-  // ['Meowth', 'images/meowth.png'],
-  // ['Scizor', 'images/scizor.png'],
-  // ['Scizor', 'images/scizor.png'],
-  // ['Heracross', 'images/heracross.png']
-  // ['Heracross', 'images/heracross.png']
-  // ]
+  var cardArray = [
+  ['Pikachu', 'images/pika.png'],
+  ['Pikachu', 'images/pika.png'],
+  ['Meowth', 'images/meowth.png'],
+  ['Meowth', 'images/meowth.png'],
+  ['Scizor', 'images/scizor.png'],
+  ['Scizor', 'images/scizor.png'],
+  ['Blastoise', 'images/blastoise.png'],
+  ['Blastoise', 'images/blastoise.png'],
+  ['Charizard', 'images/charizard.png'],
+  ['Charizard', 'images/charizard.png'],
+  ['Dusclops', 'images/dusclops.png'],
+  ['Dusclops', 'images/dusclops.png'],
+  ['Sceptile', 'images/sceptile.png'],
+  ['Sceptile', 'images/sceptile.png'],
+  ['Heracross', 'images/heracross.png'],
+  ['Heracross', 'images/heracross.png'],
+  ['Kyogre', 'images/kyogre.png'],
+  ['Kyogre', 'images/kyogre.png']
+  ]
 
-var cardArray = ['Meowth','Meowth','Pikachu','Pikachu','Scizor','Scizor','Heracross','Heracross', 'Mew', 'Mew','Mewtwo', 'Mewtwo','Charizard','Charizard','Blastoise', 'Blastoise','Venasaur','Venasaur'];
+// var cardArray = ['Meowth','Meowth','Pikachu','Pikachu','Scizor','Scizor','Heracross','Heracross', 'Mew', 'Mew','Mewtwo', 'Mewtwo','Charizard','Charizard','Blastoise', 'Blastoise','Venasaur','Venasaur'];
 //create array for values and Ids, and a var for the counter
 var cardVal = [];
 var cardIds = [];
@@ -55,47 +65,46 @@ function makeBoard(){
   //runs the method that I added to the prototype
   cardArray.cardShuffle();
   counter = 0;
-  //For loop to create, the cards and assign values
+  // For loop to create, the cards and assign values
   for (var i = 0; i < cardArray.length; i++){
-    output = $('<div id="card'+i+'" class="a_card"  data-val='+cardArray[i]+'>"');
+    output = $('<div id="card'+i+'" class="'+cardArray[i][0]+' card" data-val='+cardArray[i][1]+'>');
+    console.log(output.attr('data-val'))
     //added to body
-  board.append(output);
+    board.append(output);
   }
-  //runs function for the div's created
-  $('.a_card').each(function(){
+  // runs function for the div's created
+  $('.card').each(function(){
     //when the div being ran through is clicked
     $(this).click(function(){
+        console.log(this)
       //assign the data value to var
-      var poke_name = $(this).attr('data-val');
+      var poke_name = $(this).attr('class');
+      var poke_image = $(this).attr('data-val');
       //pushes the id of the div into cardIds array
       cardIds.push(this.id);
-      console.log(cardIds);
+      console.log(this);
       //run flip function;
-      flipCard($(this),poke_name);
+      flipCard($(this),poke_name,poke_image);
     });
   });
 }
 
-function flipCard(card,val){
-  console.log(val);
+function flipCard(card,val,img){
+  console.log(img);
   //if card is empty and length of cardVal is less than 2
   if(cardVal.length < 2){
-    //change bg to grey & assign the value to the card text
-    $(card).html(val);
-    console.log(cardIds);
-    card.css('background-image', 'none');
+    // Adds images of pokemon
+    card.css('background-image', "url("+img+")");
     if(cardVal.length === 0){
-      //add val to cardVal array && card.id to cardIds array
+      //add val to cardVal array
       cardVal.push(val);
-      console.log(cardVal);
     }else if(cardVal.length == 1){
       //same as above
       cardVal.push(val);
-      console.log(cardVal);
       cardIds.push(card.id);
       //if they equal each other...
       if (cardVal[0] == cardVal[1]){
-        counter += 2;
+        counter += 2;   
         //clear stored values
         cardVal = [];
         cardIds = [];

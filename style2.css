@@ -88,3 +88,16 @@ button{
   text-align: center;
   color: black;
 }
+
+.Pikachu{
+  background-image:url("pika.png");
+}
+.Heracross{
+  background-image:url("heracross.png");
+}
+.Scizor{
+  background-image:url("scizor.png");
+}
+.Meowth{
+  background-image:url("meowth.png");
+}
