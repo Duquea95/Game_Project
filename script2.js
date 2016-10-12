@@ -54,13 +54,18 @@ start();
 //function for switching from main screen to game screen
 var screenSwitch = function(){
   $('body').removeAttr('id');
-  $('body').attr('id','second');
 };
 
 //function for creating the board
 function makeBoard(){
   var board = $("<div id='board'>");
   $('body').append(board);
+  var $timer = $("<div id='time'>")
+  $('body').append($timer);
+  var timeLimit = 60 * 2,
+  display = $('#time');
+  startTimer(timeLimit, display);
+
   var output ='';
   //runs the method that I added to the prototype
   cardArray.cardShuffle();
@@ -104,7 +109,7 @@ function flipCard(card,val,img){
       cardIds.push(card.id);
       //if they equal each other...
       if (cardVal[0] == cardVal[1]){
-        counter += 2;   
+        counter += 2;
         //clear stored values
         cardVal = [];
         cardIds = [];
@@ -122,9 +127,7 @@ function flipCard(card,val,img){
           var flip2 = $('#' + cardIds[1]);
           // Flip the 2 tiles back over
           flip1.css('background-image' , "url(http://cdn.bulbagarden.net/upload/thumb/2/2a/TCG_Card_Back_Japanese.jpg/150px-TCG_Card_Back_Japanese.jpg)");
-          flip1.html("");
           flip2.css('background-image' , 'url(http://cdn.bulbagarden.net/upload/thumb/2/2a/TCG_Card_Back_Japanese.jpg/150px-TCG_Card_Back_Japanese.jpg)');
-          flip2.html("");
           // Clear both arrays
           cardVal = [];
           cardIds = [];
@@ -133,6 +136,26 @@ function flipCard(card,val,img){
       }
     }
   }
+}
+
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.text(minutes + ":" + seconds);
+
+        if (--timer < 0) {
+            alert("You lose. Try again!")
+            $('div').remove();
+            makeBoard();
+            timer = duration;
+        }
+    }, 1000);
 }
 
 });

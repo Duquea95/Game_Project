@@ -7,7 +7,10 @@ src: url("hyperspace_italic.otf") format("opentype");
 
 body{
   font-family: Hyperspace;
-  color: #3FD69A;
+  background-image: url("https://images3.alphacoders.com/206/206257.jpg");
+  background-size:contain;
+  color: rgba(255, 0, 0, 0.5);;
+  min-width: 100vw;
 }
 
 #first:before{
@@ -52,7 +55,7 @@ button{
   padding: 14px 40px;
   font-family: Hyperspace;
   font-weight: 400;
-  color: #3FD69A;
+  color: rgba(255, 0, 0, 0.5);
   background-color: transparent;
   outline: none;
   font-weight: bold;
@@ -71,7 +74,6 @@ button{
   width: 1000px;
   border: solid black 5px;
   margin: 0 auto;
-  padding: 12px;
 }
 
 #board > div{
@@ -89,15 +91,8 @@ button{
   color: black;
 }
 
-.Pikachu{
-  background-image:url("pika.png");
-}
-.Heracross{
-  background-image:url("heracross.png");
-}
-.Scizor{
-  background-image:url("scizor.png");
-}
-.Meowth{
-  background-image:url("meowth.png");
+div#time{
+  font-size: 24px;
+  margin-right: 85px;
+  text-align: center;
 }
