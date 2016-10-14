@@ -14,10 +14,10 @@ body{
   background-image: url("https://images3.alphacoders.com/206/206257.jpg");
   background-size:contain;
   color: rgba(255, 0, 0, 0.5);;
-  min-width: 100vw;
+  /*min-width: 100vw;*/
 }
 
-#first:before{
+/*#first:before{
   content : "";
   display: block;
   position: absolute;
@@ -30,7 +30,7 @@ body{
   height: 100%;
   opacity: .8;
   z-index: -1;
-}
+}*/
 
 h1{
   font-size: 80px;
@@ -100,4 +100,23 @@ div#time{
   font-size: 42px;
   margin-right: 85px;
   text-align: center;
+}
+
+@media only screen and (max-device-width: 480px) {
+  body{
+    height: auto
+  }
+  #board{
+    height: 570px;
+    width: 1000px;
+    border: solid black 5px;
+    margin: 0 auto;
+  }
+
+  div#time{
+    font-family: Digitaldream;
+    font-size: 42px;
+    margin-right: 85px;
+    margin-top: 115px;
+    text-align: center;
 }
